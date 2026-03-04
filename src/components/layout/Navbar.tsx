@@ -1,17 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Sparkles } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,41 +26,6 @@ export function Navbar() {
         <Link href="/" className="text-2xl font-headline font-bold text-primary tracking-tight">
           Carblau<span className="text-accent">.</span>
         </Link>
-
-        <div className="flex items-center space-x-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="rounded-full border-primary/50 text-primary hover:bg-primary/10 px-6"
-              >
-                <Sparkles className="h-4 w-4 mr-2 text-accent" />
-                Encuentra tu coche
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
-              <DialogHeader className="p-6 border-b border-white/5 bg-secondary/20">
-                <div className="flex items-center space-x-3">
-                  <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                    <Sparkles className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <DialogTitle className="text-xl font-headline font-bold">Asesor Virtual Exclusivo</DialogTitle>
-                    <p className="text-xs text-muted-foreground">Analizando tu estilo de vida para encontrar tu coche ideal</p>
-                  </div>
-                </div>
-              </DialogHeader>
-              <div className="flex-1 w-full bg-background relative">
-                <iframe 
-                  src="https://my-frontend-app-1063747381969.europe-west1.run.app/" 
-                  className="absolute inset-0 w-full h-full border-0"
-                  title="Asesor Virtual Exclusivo de Carblau"
-                  allow="microphone"
-                />
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
       </div>
     </nav>
   );
