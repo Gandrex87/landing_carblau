@@ -3,7 +3,6 @@
 
 import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
-import Image from "next/image";
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -14,31 +13,31 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[80vh] flex items-center pt-20 overflow-hidden">
+    <section className="relative pt-32 pb-10 overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -ml-24 -mb-24 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
             <span>Redefiniendo la búsqueda de coches</span>
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-headline font-bold leading-tight tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-headline font-bold leading-tight tracking-tight">
             No somos una tienda de coches al uso. <br />
             <span className="gradient-text">Y eso es bueno para ti.</span>
           </h1>
           
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
-            Olvídate de las presiones de venta tradicionales. En Carblau encontramos el coche que realmente se adapta a tu estilo de vida, necesidades y presupuesto.
+          <p className="text-md lg:text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
+            Olvídate de las presiones de venta tradicionales. En Carblau encontramos el coche que realmente se adapta a tu estilo de vida.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
             <Button 
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-md px-8 h-14 rounded-full transition-all group"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-md px-8 h-12 rounded-full transition-all group"
               onClick={() => scrollToSection('advisor')}
             >
               Encuentra tu coche ideal
@@ -47,30 +46,11 @@ export function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white/20 hover:bg-white/5 text-md px-8 h-14 rounded-full transition-all"
+              className="border-white/20 hover:bg-white/5 text-md px-8 h-12 rounded-full transition-all"
               onClick={() => scrollToSection('how-it-works')}
             >
               Ver cómo funcionamos
             </Button>
-          </div>
-
-          <div className="flex flex-col items-center space-y-4 pt-4">
-            <div className="flex -space-x-3">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-10 w-10 rounded-full border-2 border-background bg-secondary flex items-center justify-center overflow-hidden">
-                   <Image 
-                    src={`https://picsum.photos/seed/${i + 10}/100/100`} 
-                    alt="User" 
-                    width={40} 
-                    height={40}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="text-sm font-medium">
-              <span className="text-foreground block">Más de 500 clientes felices</span>
-              <span className="text-muted-foreground">Expertos en personalización</span>
-            </div>
           </div>
         </div>
       </div>
