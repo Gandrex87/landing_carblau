@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-car",
+      "description": "Sophisticated modern car in a dark environment",
+      "imageUrl": "https://images.unsplash.com/photo-1519245659620-e859806a8d3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsdXh1cnklMjBjYXJ8ZW58MHx8fHwxNzcyNTgwMjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury car"
+    },
+    {
+      "id": "lifestyle-city",
+      "description": "Modern urban lifestyle",
+      "imageUrl": "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2Rlcm4lMjBjaXR5fGVufDB8fHx8MTc3MjU3NTI1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern city"
+    },
+    {
+      "id": "step1-icon",
+      "description": "Person thinking about car needs",
+      "imageUrl": "https://images.unsplash.com/photo-1446511437394-36cdff3ae1b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3NzI1NzUxODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person thinking"
+    },
+    {
+      "id": "step2-icon",
+      "description": "Searching through car database",
+      "imageUrl": "https://picsum.photos/seed/step2/400/300",
+      "imageHint": "database search"
+    },
+    {
+      "id": "step3-icon",
+      "description": "Negotiation and deal making",
+      "imageUrl": "https://picsum.photos/seed/step3/400/300",
+      "imageHint": "handshake business"
+    },
+    {
+      "id": "step4-icon",
+      "description": "Car delivery",
+      "imageUrl": "https://picsum.photos/seed/step4/400/300",
+      "imageHint": "car delivery"
+    }
+  ]
 }
