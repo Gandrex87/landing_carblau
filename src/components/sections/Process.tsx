@@ -1,4 +1,3 @@
-
 "use client";
 
 import { 
@@ -41,10 +40,9 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="how-it-works" className="pb-24 pt-0">
+    <section id="how-it-works" className="pb-16 pt-0">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mb-8 space-y-2">
-          <h2 className="text-primary font-semibold tracking-wider uppercase text-xs">El Método Carblau</h2>
+        <div className="max-w-2xl mb-6">
           <h3 className="text-2xl lg:text-3xl font-headline font-bold">Cómo funcionamos</h3>
         </div>
 

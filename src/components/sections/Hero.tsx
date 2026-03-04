@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -13,18 +12,13 @@ export function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-10 overflow-hidden">
+    <section className="relative pt-24 pb-6 overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -ml-24 -mb-24 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-sm font-medium text-primary">
-            <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span>Redefiniendo la búsqueda de coches</span>
-          </div>
-          
           <h1 className="text-4xl lg:text-6xl font-headline font-bold leading-tight tracking-tight">
             No somos una tienda de coches al uso. <br />
             <span className="gradient-text">Y eso es bueno para ti.</span>
