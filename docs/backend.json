@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Contact": {
+      "title": "Contact",
+      "description": "Una solicitud de contacto de un cliente potencial interesado en Carblau.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nombre completo del cliente."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Correo electrónico de contacto."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Número de teléfono móvil."
+        },
+        "message": {
+          "type": "string",
+          "description": "Descripción de lo que el cliente busca en su coche."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Fecha y hora de la solicitud."
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "phone"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "contacts/{contactId}": {
+      "schema": "Contact",
+      "description": "Colección principal donde se almacenan los leads de Carblau."
+    }
+  }
+}
