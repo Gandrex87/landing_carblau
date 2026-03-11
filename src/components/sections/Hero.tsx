@@ -35,7 +35,7 @@ export function Hero() {
                   size="lg" 
                   className="bg-primary text-primary-foreground hover:bg-primary/90 text-md px-10 h-14 rounded-full transition-all group shadow-xl shadow-primary/20"
                 >
-                  Encuentra tu coche ideal
+                  Deja que nuestra IA te asesore
                   <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </DialogTrigger>

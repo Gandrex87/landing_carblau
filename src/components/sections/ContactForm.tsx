@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -7,22 +6,49 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await addDoc(collection(db, "contacts"), {
+        ...formData,
+        createdAt: serverTimestamp(),
+      });
+
       toast({
         title: "¡Solicitud enviada!",
         description: "Un asesor experto de Carblau te contactará en menos de 24 horas.",
       });
-    }, 1500);
+
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        variant: "destructive",
+        title: "Error al enviar",
+        description: "No hemos podido guardar tu solicitud. Por favor, inténtalo de nuevo.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
   return (
@@ -61,6 +87,8 @@ export function ContactForm() {
                     placeholder="Tu nombre" 
                     className="bg-white/5 border-white/10 rounded-xl"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
@@ -71,6 +99,8 @@ export function ContactForm() {
                     placeholder="+34 600 000 000" 
                     className="bg-white/5 border-white/10 rounded-xl"
                     required
+                    value={formData.phone}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -83,6 +113,8 @@ export function ContactForm() {
                   placeholder="hola@ejemplo.com" 
                   className="bg-white/5 border-white/10 rounded-xl"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -92,6 +124,8 @@ export function ContactForm() {
                   id="message" 
                   placeholder="Ej: SUV familiar híbrido, presupuesto 30k, uso diario en ciudad..." 
                   className="bg-white/5 border-white/10 rounded-xl min-h-[120px]"
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
 
