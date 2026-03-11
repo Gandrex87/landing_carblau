@@ -13,13 +13,14 @@ import {
 } from "@/components/ui/table";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Navbar } from "@/components/layout/Navbar";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export default function AdminPage() {
   const [contacts, setContacts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Escuchar cambios en tiempo real en la colección 'contacts'
     const q = query(collection(db, "contacts"), orderBy("createdAt", "desc"));
     
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -34,14 +35,54 @@ export default function AdminPage() {
     return () => unsubscribe();
   }, []);
 
+  const exportToCSV = () => {
+    if (contacts.length === 0) return;
+
+    const headers = ["Nombre", "Email", "Teléfono", "Mensaje", "Fecha"];
+    const csvRows = [
+      headers.join(","),
+      ...contacts.map(contact => {
+        const date = contact.createdAt?.toDate ? contact.createdAt.toDate().toLocaleString() : "";
+        return [
+          `"${contact.name || ""}"`,
+          `"${contact.email || ""}"`,
+          `"${contact.phone || ""}"`,
+          `"${(contact.message || "").replace(/"/g, '""')}"`,
+          `"${date}"`
+        ].join(",");
+      })
+    ];
+
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `leads_carblau_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <div className="container mx-auto py-32 px-6">
         <div className="max-w-6xl mx-auto space-y-8">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-headline font-bold">Panel de Control</h1>
-            <p className="text-muted-foreground">Gestión de clientes y leads interesados en Carblau.</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-headline font-bold text-primary">Panel de Control</h1>
+              <p className="text-muted-foreground">Gestión de clientes y leads interesados en Carblau.</p>
+            </div>
+            <Button 
+              onClick={exportToCSV} 
+              disabled={contacts.length === 0}
+              variant="outline"
+              className="border-primary/20 hover:bg-primary/10"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Exportar a CSV
+            </Button>
           </div>
 
           <Card className="bg-secondary/20 border-white/10 glass-morphism overflow-hidden">
