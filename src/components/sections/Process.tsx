@@ -20,20 +20,14 @@ const steps = [
   },
   {
     number: "02",
-    title: "Búsqueda Global",
-    description: "Rastreamos el mercado para localizar las mejores unidades para ti.",
+    title: "Gestión Integral",
+    description: "Rastreamos el mercado y negociamos la mejor unidad por ti con total transparencia.",
     image: PlaceHolderImages.find(img => img.id === "step2-icon")!
   },
   {
     number: "03",
-    title: "Negociación Experta",
-    description: "Negociamos por ti, asegurando las mejores condiciones y detalles técnicos.",
-    image: PlaceHolderImages.find(img => img.id === "step3-icon")!
-  },
-  {
-    number: "04",
-    title: "Entrega a Domicilio",
-    description: "Recibes tu coche ideal listo para disfrutar, con todas las garantías.",
+    title: "Entrega Carblau",
+    description: "Recibes tu coche ideal listo para disfrutar, con todas las garantías en tu puerta.",
     image: PlaceHolderImages.find(img => img.id === "step4-icon")!
   }
 ];
@@ -49,13 +43,13 @@ export function Process() {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
+            loop: false,
           }}
           className="w-full"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {steps.map((step, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="bg-background border-white/5 h-full overflow-hidden hover:border-primary/30 transition-all duration-300 group">
                   <CardContent className="p-0 flex flex-col h-full">
                     <div className="relative aspect-video w-full overflow-hidden">
@@ -81,7 +75,7 @@ export function Process() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-end gap-2 mt-4">
+          <div className="flex justify-end gap-2 mt-4 lg:hidden">
             <CarouselPrevious className="static translate-y-0 h-10 w-10 border-white/10" />
             <CarouselNext className="static translate-y-0 h-10 w-10 border-white/10" />
           </div>
