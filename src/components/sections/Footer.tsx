@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,11 +22,6 @@ export function Footer() {
             <p className="text-muted-foreground font-body">
               Encuentra el coche que mejor se adapta a tu estilo de vida con nuestro asesoramiento exclusivo.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Instagram className="h-5 w-5" /></a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Twitter className="h-5 w-5" /></a>
-            </div>
           </div>
 
           <div>

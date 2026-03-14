@@ -15,13 +15,13 @@
     {
       "id": "step1-icon",
       "description": "Person thinking about car needs",
-      "imageUrl": "https://images.unsplash.com/photo-1446511437394-36cdff3ae1b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3NzI1NzUxODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/img2.webp",
       "imageHint": "person thinking"
     },
     {
       "id": "step2-icon",
       "description": "Gestión Integral Carblau",
-      "imageUrl": "/img2.webp",
+      "imageUrl": "/img1.webp",
       "imageHint": "car search"
     },
     {

@@ -117,7 +117,7 @@ export function Hero() {
                   variant="outline"
                   className="border-white/10 hover:bg-white/5 text-md px-10 h-14 rounded-full transition-all w-full sm:w-auto"
                 >
-                  Hablar con un experto
+                  Contactanos
                   <MessageSquare className="ml-2 h-5 w-5" />
                 </Button>
               </DialogTrigger>
