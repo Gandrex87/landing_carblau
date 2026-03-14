@@ -20,20 +20,14 @@
     },
     {
       "id": "step2-icon",
-      "description": "Searching through car database",
-      "imageUrl": "https://picsum.photos/seed/step2/640/360",
-      "imageHint": "database search"
+      "description": "Gestión Integral Carblau",
+      "imageUrl": "/img2.webp",
+      "imageHint": "car search"
     },
     {
       "id": "step3-icon",
-      "description": "Negotiation and deal making",
-      "imageUrl": "https://picsum.photos/seed/step3/640/360",
-      "imageHint": "handshake business"
-    },
-    {
-      "id": "step4-icon",
-      "description": "Car delivery",
-      "imageUrl": "https://picsum.photos/seed/step4/640/360",
+      "description": "Entrega Carblau",
+      "imageUrl": "/img3.webp",
       "imageHint": "car delivery"
     }
   ]

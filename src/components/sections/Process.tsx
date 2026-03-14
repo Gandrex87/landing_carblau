@@ -29,7 +29,7 @@ const steps = [
     number: "03",
     title: "Entrega Carblau",
     description: "Recibes tu coche ideal listo para disfrutar, con todas las garantías en tu puerta.",
-    image: PlaceHolderImages.find(img => img.id === "step4-icon")!
+    image: PlaceHolderImages.find(img => img.id === "step3-icon")!
   }
 ];
 
