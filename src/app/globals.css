@@ -1,35 +1,35 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 17% 9%;
+    /* Basado en #00adef (HSL: 197 100% 47%) */
+    --background: 210 25% 7%;
     --foreground: 210 20% 98%;
-    --card: 210 17% 12%;
+    --card: 210 20% 10%;
     --card-foreground: 210 20% 98%;
-    --popover: 210 17% 9%;
+    --popover: 210 25% 7%;
     --popover-foreground: 210 20% 98%;
-    --primary: 210 85% 72%;
-    --primary-foreground: 210 20% 10%;
-    --secondary: 210 17% 18%;
+    --primary: 197 100% 47%;
+    --primary-foreground: 197 100% 10%;
+    --secondary: 197 30% 15%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 210 17% 18%;
+    --muted: 210 15% 15%;
     --muted-foreground: 210 10% 70%;
-    --accent: 187 88% 65%;
-    --accent-foreground: 187 20% 10%;
+    --accent: 185 90% 60%;
+    --accent-foreground: 185 20% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 17% 20%;
-    --input: 210 17% 20%;
-    --ring: 187 88% 65%;
-    --chart-1: 210 85% 72%;
-    --chart-2: 187 88% 65%;
+    --border: 210 15% 18%;
+    --input: 210 15% 18%;
+    --ring: 197 100% 47%;
+    --chart-1: 197 100% 47%;
+    --chart-2: 185 90% 60%;
     --chart-3: 200 80% 50%;
     --chart-4: 180 70% 45%;
     --chart-5: 220 90% 60%;
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 }
 
@@ -44,9 +44,9 @@
 }
 
 .glass-morphism {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#7CB9F5] to-[#58E3F6];
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00adef] to-[#58E3F6];
 }
