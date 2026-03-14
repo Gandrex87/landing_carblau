@@ -1,7 +1,8 @@
-
 "use client";
 
 import { Mail, Phone, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -9,7 +10,15 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-6">
-            <h2 className="text-2xl font-headline font-bold text-primary">Carblau</h2>
+            <Link href="/" className="inline-block">
+              <Image 
+                src="/logo_car_blau.png" 
+                alt="Carblau Logo" 
+                width={140} 
+                height={35} 
+                className="h-8 w-auto object-contain brightness-110"
+              />
+            </Link>
             <p className="text-muted-foreground font-body">
               Encuentra el coche que mejor se adapta a tu estilo de vida con nuestro asesoramiento exclusivo.
             </p>

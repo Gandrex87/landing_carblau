@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -23,8 +24,15 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-headline font-bold text-primary tracking-tight">
-          Carblau<span className="text-accent">.</span>
+        <Link href="/" className="flex items-center">
+          <Image 
+            src="/logo_car_blau.png" 
+            alt="Carblau Logo" 
+            width={160} 
+            height={40} 
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
       </div>
     </nav>
