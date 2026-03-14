@@ -1,3 +1,4 @@
+
 "use client";
 
 import { 
@@ -52,19 +53,20 @@ export function Process() {
               <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <Card className="bg-background border-white/5 h-full overflow-hidden hover:border-primary/30 transition-all duration-300 group">
                   <CardContent className="p-0 flex flex-col h-full">
-                    <div className="relative aspect-video w-full overflow-hidden">
+                    <div className="relative aspect-video w-full overflow-hidden bg-muted">
                       <Image
                         src={step.image.imageUrl}
                         alt={step.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         data-ai-hint={step.image.imageHint}
                       />
-                      <div className="absolute top-2 left-2 bg-primary text-primary-foreground font-bold text-sm h-7 w-7 flex items-center justify-center rounded-md shadow-xl">
+                      <div className="absolute top-3 left-3 bg-primary text-primary-foreground font-bold text-xs h-8 w-8 flex items-center justify-center rounded-lg shadow-2xl z-10">
                         {step.number}
                       </div>
                     </div>
-                    <div className="p-4 space-y-2 flex-1">
+                    <div className="p-5 space-y-2 flex-1">
                       <h4 className="text-lg font-bold font-headline">{step.title}</h4>
                       <p className="text-sm text-muted-foreground font-body leading-relaxed">
                         {step.description}
@@ -75,9 +77,9 @@ export function Process() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-end gap-2 mt-4 lg:hidden">
-            <CarouselPrevious className="static translate-y-0 h-10 w-10 border-white/10" />
-            <CarouselNext className="static translate-y-0 h-10 w-10 border-white/10" />
+          <div className="flex justify-end gap-2 mt-6 lg:hidden">
+            <CarouselPrevious className="static translate-y-0 h-11 w-11 border-white/10" />
+            <CarouselNext className="static translate-y-0 h-11 w-11 border-white/10" />
           </div>
         </Carousel>
       </div>

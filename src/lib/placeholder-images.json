@@ -21,19 +21,19 @@
     {
       "id": "step2-icon",
       "description": "Searching through car database",
-      "imageUrl": "https://picsum.photos/seed/step2/400/300",
+      "imageUrl": "https://picsum.photos/seed/step2/640/360",
       "imageHint": "database search"
     },
     {
       "id": "step3-icon",
       "description": "Negotiation and deal making",
-      "imageUrl": "https://picsum.photos/seed/step3/400/300",
+      "imageUrl": "https://picsum.photos/seed/step3/640/360",
       "imageHint": "handshake business"
     },
     {
       "id": "step4-icon",
       "description": "Car delivery",
-      "imageUrl": "https://picsum.photos/seed/step4/400/300",
+      "imageUrl": "https://picsum.photos/seed/step4/640/360",
       "imageHint": "car delivery"
     }
   ]
