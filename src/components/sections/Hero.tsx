@@ -95,7 +95,7 @@ export function Hero() {
                     </div>
                     <div>
                       <DialogTitle className="text-xl font-headline font-bold">Asesor Virtual Exclusivo</DialogTitle>
-                      <p className="text-xs text-muted-foreground">Analizando tu estilo de vida para encontrar tu coche ideal</p>
+  
                     </div>
                   </div>
                 </DialogHeader>
