@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Mail, Phone } from "lucide-react";
@@ -8,7 +9,7 @@ export function Footer() {
   return (
     <footer className="py-12 border-t border-white/10">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div className="space-y-6">
             <Link href="/" className="inline-block">
               <Image 
@@ -25,22 +26,12 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold mb-6">Servicios</h3>
-            <ul className="space-y-4 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Búsqueda a la carta</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Revisiones técnicas</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Importación</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Financiación</a></li>
-            </ul>
-          </div>
-
-          <div>
             <h3 className="font-bold mb-6">Compañía</h3>
             <ul className="space-y-4 text-muted-foreground">
               <li><a href="#" className="hover:text-primary transition-colors">Sobre nosotros</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Cómo funcionamos</a></li>
+              <li><a href="#how-it-works" className="hover:text-primary transition-colors">Cómo funcionamos</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contacto</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">Contacto</a></li>
             </ul>
           </div>
 
