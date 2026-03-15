@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regla específica para tu colección de leads
+    match /leads/{leadId} {
+      // Permite que cualquier usuario cree un nuevo documento (envíe el formulario)
+      allow create: if true;
+      
+      // Prohíbe que cualquier persona lea, edite o borre los leads desde la web
+      // Tú siempre podrás verlos desde la consola de Firebase sin problema
+      allow read, update, delete: if false;
+    }
+    
+  }
+}

@@ -26,16 +26,6 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold mb-6">Compañía</h3>
-            <ul className="space-y-4 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Sobre nosotros</a></li>
-              <li><a href="#how-it-works" className="hover:text-primary transition-colors">Cómo funcionamos</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div>
             <h3 className="font-bold mb-6">Contacto</h3>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-center space-x-3">
