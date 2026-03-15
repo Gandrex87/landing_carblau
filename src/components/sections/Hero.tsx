@@ -87,15 +87,14 @@ export function Hero() {
                   <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
-                <DialogHeader className="p-6 border-b border-white/5 bg-secondary/20">
+              <DialogContent className="max-w-5xl w-[95vw] h-[90vh] md:h-[85vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
+                <DialogHeader className="px-6 py-3 border-b border-white/5 bg-secondary/20 shrink-0">
                   <div className="flex items-center space-x-3">
-                    <div className="h-10 w-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                      <Sparkles className="h-5 w-5" />
+                    <div className="h-8 w-8 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                      <Sparkles className="h-4 w-4" />
                     </div>
                     <div>
-                      <DialogTitle className="text-xl font-headline font-bold">Asesor Virtual Exclusivo</DialogTitle>
-  
+                      <DialogTitle className="text-lg font-headline font-bold">Asesor Virtual Exclusivo</DialogTitle>
                     </div>
                   </div>
                 </DialogHeader>
