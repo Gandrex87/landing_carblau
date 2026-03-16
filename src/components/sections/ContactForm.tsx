@@ -110,7 +110,7 @@ export function ContactForm() {
                 <Input 
                   id="email" 
                   type="email" 
-                  placeholder="hola@ejemplo.com" 
+                  placeholder="contacto@carblau.com" 
                   className="bg-white/5 border-white/10 rounded-xl"
                   required
                   value={formData.email}

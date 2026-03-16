@@ -30,7 +30,7 @@ export function Footer() {
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-accent" />
-                <span>hola@carblau.com</span>
+                <span>contacto@carblau.com</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-accent" />
