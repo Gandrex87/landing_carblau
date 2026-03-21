@@ -15,22 +15,28 @@ import Image from "next/image";
 const steps = [
   {
     number: "01",
-    title: "Análisis de Vida",
-    description: "Analizamos tus rutinas y necesidades para entender qué necesitas realmente.",
+    title: "Escucha",
+    description:
+      `Antes de hablar de coches, entendemos cómo vives. 
+      Analizamos tu día a día, tus prioridades y aquello que no quieres volver a experimentar. Porque elegir bien empieza por escucharte de verdad.`,
     image: PlaceHolderImages.find(img => img.id === "step1-icon")!
   },
   {
     number: "02",
-    title: "Gestión Integral",
-    description: "Rastreamos el mercado y negociamos la mejor unidad por ti con total transparencia.",
+    title: "Búsqueda",
+    description: `No vendemos lo que tenemos. Encontramos lo que necesitas.
+    Sin stock que rotar. Sin presión por cerrar.
+    Analizamos el mercado completo, filtramos opciones y seleccionamos únicamente las que realmente encajan contigo.`,
     image: PlaceHolderImages.find(img => img.id === "step2-icon")!
   },
   {
-    number: "03",
-    title: "Entrega Carblau",
-    description: "Recibes tu coche ideal listo para disfrutar, con todas las garantías en tu puerta.",
-    image: PlaceHolderImages.find(img => img.id === "step3-icon")!
-  }
+  number: "03",
+  title: "Entrega",
+  description: `Recibes tu coche listo para disfrutar.
+Revisado en detalle, reacondicionado y acompañado de un plan claro de garantía, uso y mantenimiento.
+Sin letra pequeña. Sin sorpresas.`,
+  image: PlaceHolderImages.find(img => img.id === "step3-icon")!
+}
 ];
 
 export function Process() {
@@ -67,8 +73,8 @@ export function Process() {
                       </div>
                     </div>
                     <div className="p-5 space-y-2 flex-1">
-                      <h4 className="text-lg font-bold font-headline">{step.title}</h4>
-                      <p className="text-sm text-muted-foreground font-body leading-relaxed">
+                      <h4 className="text-lg font-bold font-headline tracking-tight">{step.title}</h4>
+                      <p className="text-sm text-muted-foreground font-body leading-relaxed whitespace-pre-line">
                         {step.description}
                       </p>
                     </div>

@@ -56,16 +56,16 @@ export function ContactForm() {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-headline font-bold">¿Listo para dar el paso?</h2>
+            <h2 className="text-4xl lg:text-5xl font-headline font-bold">Si has llegado hasta aquí, ya lo has entendido</h2>
             <p className="text-muted-foreground text-lg font-body leading-relaxed">
-              Déjanos tus datos y un breve resumen de lo que buscas. Preferimos calidad sobre cantidad: buscaremos el coche que realmente te haga feliz.
+              Trabajamos con pocos encargos cada mes. Si quieres que el siguiente sea el tuyo, déjanos tus datos.
             </p>
             
             <div className="space-y-6">
               {[
-                { title: "Atención personalizada", icon: "💎" },
-                { title: "Garantía total Carblau", icon: "🛡️" },
-                { title: "Entrega llave en mano", icon: "🔑" }
+                { title: "Atención directa, sin intermediarios", icon: "💎" },
+                { title: "Proceso serio, sin improvisaciones", icon: "🛡️" },
+                { title: "Entrega lista, sin sorpresas", icon: "🔑" }
               ].map((feature, i) => (
                 <div key={i} className="flex items-center space-x-4">
                   <div className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-xl">
@@ -119,7 +119,7 @@ export function ContactForm() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">¿Qué buscas en tu próximo coche?</Label>
+                <Label htmlFor="message">Cuéntanos qué necesitas</Label>
                 <Textarea 
                   id="message" 
                   placeholder="Ej: SUV familiar híbrido, presupuesto 30k, uso diario en ciudad..." 
@@ -134,7 +134,7 @@ export function ContactForm() {
                 disabled={isSubmitting}
                 className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 rounded-xl font-bold text-lg"
               >
-                {isSubmitting ? "Enviando..." : "Solicitar contacto experto"}
+                {isSubmitting ? "Enviando..." : "Comenzar proceso"}
               </Button>
             </form>
           </div>
