@@ -85,7 +85,7 @@ export function ContactForm() {
                   <Input 
                     id="name" 
                     placeholder="Tu nombre" 
-                    className="bg-white/5 border-white/10 rounded-xl"
+                    className="bg-white/10 border-white/20 rounded-xl"
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -97,7 +97,7 @@ export function ContactForm() {
                     id="phone" 
                     type="tel" 
                     placeholder="+34 600 000 000" 
-                    className="bg-white/5 border-white/10 rounded-xl"
+                    className="bg-white/10 border-white/20 rounded-xl"
                     required
                     value={formData.phone}
                     onChange={handleChange}
@@ -111,7 +111,7 @@ export function ContactForm() {
                   id="email" 
                   type="email" 
                   placeholder="contacto@carblau.com" 
-                  className="bg-white/5 border-white/10 rounded-xl"
+                  className="bg-white/10 border-white/20 rounded-xl"
                   required
                   value={formData.email}
                   onChange={handleChange}
@@ -123,7 +123,7 @@ export function ContactForm() {
                 <Textarea 
                   id="message" 
                   placeholder="Ej: SUV familiar híbrido, presupuesto 30k, uso diario en ciudad..." 
-                  className="bg-white/5 border-white/10 rounded-xl min-h-[120px]"
+                  className="bg-white/10 border-white/20 rounded-xl min-h-[120px]"
                   value={formData.message}
                   onChange={handleChange}
                 />
