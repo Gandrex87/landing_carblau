@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Play } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 const testimonials = [
   {
@@ -79,32 +80,35 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center space-y-4 mb-16">
+    <section className="relative py-24 bg-secondary/30 overflow-hidden">
+      {/* Ambient orbs */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/10 rounded-full blur-[110px] -mr-20 -mb-20 pointer-events-none" />
+
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        <Reveal className="text-center space-y-4 mb-16">
           <h2 className="text-4xl lg:text-5xl font-headline font-bold">
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Personas reales que confiaron en nosotros para encontrar su coche ideal.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {testimonials.map((item, i) => (
-            <div
-              key={i}
-              className="bg-card rounded-3xl overflow-hidden shadow-md border border-border flex flex-col"
-            >
-              <MediaCard item={item} />
-              <div className="p-6 flex flex-col gap-3 flex-1">
-                <p className="text-foreground leading-relaxed">"{item.text}"</p>
-                <div className="mt-auto pt-4 border-t border-border">
-                  <p className="font-semibold text-foreground">{item.name}</p>
-                  <p className="text-sm text-muted-foreground">{item.location}</p>
+            <Reveal key={i} delay={i * 130} direction="scale" className="h-full">
+              <div className="bg-card rounded-3xl overflow-hidden shadow-md border border-border flex flex-col h-full">
+                <MediaCard item={item} />
+                <div className="p-6 flex flex-col gap-3 flex-1">
+                  <p className="text-foreground leading-relaxed">"{item.text}"</p>
+                  <div className="mt-auto pt-4 border-t border-border">
+                    <p className="font-semibold text-foreground">{item.name}</p>
+                    <p className="text-sm text-muted-foreground">{item.location}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
