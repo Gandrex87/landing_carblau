@@ -16,8 +16,8 @@ export default function Home() {
       <TrustBar />
       <Process />
       <Testimonials />
-      <FAQ />
       <ContactForm />
+      <FAQ />
       <Footer />
       <Toaster />
     </main>
