@@ -16,23 +16,24 @@ import { Reveal } from "@/components/ui/reveal";
 const steps = [
   {
     number: "01",
-    title: "Escucha",
+    title: "Hablamos contigo",
     description:
-      `Antes de hablar de coches, entendemos cómo vives. 
-      Analizamos tu día a día, tus prioridades y aquello que no quieres volver a experimentar. Porque elegir bien empieza por escucharte de verdad.`,
+      `No empezamos por los coches. 
+      Empezamos por ti: cómo usas el coche, qué no quieres repetir y qué esperas de este proceso. 
+      Si encajamos, definimos el encargo juntos.`,
     image: PlaceHolderImages.find(img => img.id === "step1-icon")!
   },
   {
     number: "02",
-    title: "Búsqueda",
-    description: `No vendemos lo que tenemos. Encontramos lo que necesitas.\nSin stock que rotar. Sin presión por cerrar.\nAnalizamos el mercado completo, filtramos opciones y seleccionamos únicamente las que realmente encajan contigo.`,
+    title: "Iniciamos la búsqueda",
+    description: `Sin stock que rotar. Sin presión por cerrar.\nBuscamos en las mejores fuentes hasta encontrar la unidad que realmente encaja contigo — no la primera disponible.`,
     image: PlaceHolderImages.find(img => img.id === "step2-icon")!
   },
   {
   number: "03",
-  title: "Entrega",
-  description: `Recibes tu coche listo para disfrutar.
-Revisado en detalle, reacondicionado y acompañado de un plan claro de garantía, uso y mantenimiento.
+  title: "Tu coche, en tu puerta",
+  description: `En pocos días lo recibes listo para disfrutar: 
+  revisado al detalle, reacondicionado y con un plan claro de garantía, uso y mantenimiento.
 Sin letra pequeña. Sin sorpresas.`,
   image: PlaceHolderImages.find(img => img.id === "step3-icon")!
 }

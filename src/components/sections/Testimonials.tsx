@@ -1,40 +1,106 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Play } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
 const testimonials = [
   {
-    type: "image" as const,
-    media: "/img1.webp",
+    type: "video" as const,
+    media: "/video/Video_busqueda.mp4",
+    model: "Volvo XC90 Recharge T8",
+    brief: "Cliente que necesita 7 plazas, capacidad para pistas y nieve, fiable y confortable.",
+    proposal: "Le proponemos el XC90 T8 por su equilibrio entre espacio, tracción AWD y consumo real moderado en uso híbrido.",
+    risks: "Le explicamos los riesgos y aspectos de fiabilidad así como los trucos para que nunca le dé problemas.",
     name: "Carlos M.",
     location: "Madrid",
-    text: "En menos de dos semanas me buscaron el coche exacto que quería. Sin perder el tiempo con concesionarios, sin regateos. Un servicio que no sabía que necesitaba.",
   },
   {
     type: "image" as const,
-    media: "/img2.webp",
+    media: "/casos_reales_2.png",
+    model: "Toyota RAV4 Hybrid",
+    brief: "Clienta que usa el coche a diario en ciudad, viajes de fin de semana ocasionales, presupuesto ajustado.",
+    proposal: "Le proponemos el RAV4 Hybrid por su fiabilidad contrastada, bajo coste de mantenimiento y consumo real en ciudad.",
+    risks: "Le explicamos qué revisar en segunda mano y cómo identificar unidades bien mantenidas frente a las que solo parecen serlo.",
     name: "Laura G.",
     location: "Barcelona",
-    text: "Me asesoraron desde cero. No tenía ni idea de qué modelo quería y ellos me ayudaron a definirlo según mi día a día. El resultado fue perfecto.",
   },
   {
-    type: "image" as const,
-    media: "/img3.webp",
+    type: "video" as const,
+    media: "/video/Premium_Car.mp4",
+    model: "BMW Serie 3 320d",
+    brief: "Cliente con muchos kilómetros anuales, carretera, comodidad y bajo coste por kilómetro.",
+    proposal: "Le proponemos el 320d por eficiencia diésel real, dinámica de conducción y coste de uso muy competitivo.",
+    risks: "Le explicamos los puntos críticos del motor B47 y la importancia del historial de mantenimiento en revisiones largas.",
     name: "Javier R.",
     location: "Valencia",
-    text: "Transparentes en todo momento: precio, estado del vehículo, gestión. Nunca me sentí vendido, sino acompañado. Repetiría sin dudarlo.",
   },
 ];
 
+// ── 3D Tilt + Glare card ──────────────────────────────────────────────────────
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [style, setStyle] = useState<React.CSSProperties>({});
+  const [glare, setGlare] = useState<React.CSSProperties>({ opacity: 0 });
+  const frameRef = useRef<number | null>(null);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    frameRef.current = requestAnimationFrame(() => {
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5 → 0.5
+      const y = (e.clientY - rect.top) / rect.height - 0.5;    // -0.5 → 0.5
+
+      setStyle({
+        transform: `perspective(900px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale3d(1.03,1.03,1.03)`,
+        transition: "transform 0.08s ease",
+        boxShadow: `${-x * 20}px ${-y * 20}px 40px rgba(0,173,239,0.15), 0 20px 60px rgba(0,0,0,0.3)`,
+      });
+      setGlare({
+        opacity: 1,
+        background: `radial-gradient(circle at ${(x + 0.5) * 100}% ${(y + 0.5) * 100}%, rgba(255,255,255,0.12) 0%, transparent 65%)`,
+      });
+    });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    setStyle({
+      transform: "perspective(900px) rotateY(0deg) rotateX(0deg) scale3d(1,1,1)",
+      transition: "transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s cubic-bezier(0.16,1,0.3,1)",
+      boxShadow: "none",
+    });
+    setGlare({ opacity: 0, transition: "opacity 0.4s ease" });
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={style}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative bg-card rounded-3xl overflow-hidden border border-border flex flex-col h-full will-change-transform"
+    >
+      {/* Glare overlay */}
+      <div
+        className="absolute inset-0 z-10 rounded-3xl pointer-events-none"
+        style={{ ...glare, transition: "opacity 0.4s ease" }}
+      />
+      {children}
+    </div>
+  );
+}
+
+// ── Media (imagen o vídeo) ────────────────────────────────────────────────────
 function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   const [playing, setPlaying] = useState(false);
 
   if (item.type === "image") {
     return (
       <div
-        className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-secondary"
+        className="w-full aspect-[4/3] overflow-hidden bg-secondary"
         style={{
           backgroundImage: `url(${item.media})`,
           backgroundSize: "cover",
@@ -45,23 +111,17 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   }
 
   return (
-    <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-secondary relative">
+    <div className="w-full aspect-[4/3] overflow-hidden bg-secondary relative">
       {playing ? (
-        <video
-          src={item.media}
-          autoPlay
-          controls
-          className="w-full h-full object-cover"
-        />
+        <video src={item.media} autoPlay controls className="w-full h-full object-cover" />
       ) : (
         <>
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `url(${item.media})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+          <video
+            src={item.media}
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            preload="metadata"
           />
           <button
             onClick={() => setPlaying(true)}
@@ -78,36 +138,41 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   );
 }
 
+// ── Sección ───────────────────────────────────────────────────────────────────
 export function Testimonials() {
   return (
-    <section className="relative py-24 bg-secondary/30 overflow-hidden">
-      {/* Ambient orbs */}
+    <section className="relative pt-12 pb-10 bg-secondary/30 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/10 rounded-full blur-[110px] -mr-20 -mb-20 pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <Reveal className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl lg:text-5xl font-headline font-bold">
-            Lo que dicen nuestros clientes
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Personas reales que confiaron en nosotros para encontrar su coche ideal.
-          </p>
+        <Reveal>
+          <div className="max-w-2xl mb-6">
+            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Casos reales</h3>
+          </div>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {testimonials.map((item, i) => (
             <Reveal key={i} delay={i * 130} direction="scale" className="h-full">
-              <div className="bg-card rounded-3xl overflow-hidden shadow-md border border-border flex flex-col h-full">
+              <TiltCard>
                 <MediaCard item={item} />
-                <div className="p-6 flex flex-col gap-3 flex-1">
-                  <p className="text-foreground leading-relaxed">"{item.text}"</p>
+
+                <div className="p-6 flex flex-col gap-4 flex-1">
+                  <p className="font-headline font-bold text-foreground text-base">{item.model}</p>
+
+                  <div className="space-y-3 text-sm leading-relaxed">
+                    <p className="text-muted-foreground">{item.brief}</p>
+                    <p className="text-foreground">{item.proposal}</p>
+                    <p className="text-muted-foreground">{item.risks}</p>
+                  </div>
+
                   <div className="mt-auto pt-4 border-t border-border">
-                    <p className="font-semibold text-foreground">{item.name}</p>
-                    <p className="text-sm text-muted-foreground">{item.location}</p>
+                    <p className="font-semibold text-foreground text-sm">{item.name}</p>
+                    <p className="text-xs text-muted-foreground">{item.location}</p>
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

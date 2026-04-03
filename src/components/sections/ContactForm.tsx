@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +9,79 @@ import { toast } from "@/hooks/use-toast";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Reveal } from "@/components/ui/reveal";
+import { Gem, ScanSearch, Handshake } from "lucide-react";
+
+const lines = [
+  { text: "No somos para todo el mundo. Y lo decimos en serio.", className: "text-4xl lg:text-5xl font-headline font-bold text-foreground" },
+  { text: "Si quieres llevarte un coche hoy mismo,\nno somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos", className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug" },
+  { text: "hablemos.", className: "text-4xl lg:text-5xl font-headline font-bold text-primary" },
+];
+
+const features = [
+  { Icon: Gem,         text: "Trabajamos con pocos encargos cada mes" },
+  { Icon: ScanSearch,  text: "Búsqueda personalizada, no catálogo" },
+  { Icon: Handshake,   text: "Te acompañamos hasta el final" },
+];
+
+const TOTAL = lines.length + features.length;
+
+function IlluminateText() {
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const [lit, setLit] = useState<boolean[]>(Array(TOTAL).fill(false));
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    Array.from({ length: TOTAL }).forEach((_, i) => {
+      const el = refs.current[i];
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setLit(prev => {
+              if (prev[i]) return prev;
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            }), i * 180);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.4 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
+
+  return (
+    <div className="space-y-6">
+      {lines.map((line, i) => (
+        <div
+          key={i}
+          ref={el => { refs.current[i] = el; }}
+          className={`text-line whitespace-pre-line ${line.className} ${lit[i] ? "lit" : ""}`}
+        >
+          {line.text}
+        </div>
+      ))}
+      <div className="pt-4 space-y-4">
+        {features.map(({ Icon, text }, i) => (
+          <div
+            key={i}
+            ref={el => { refs.current[lines.length + i] = el; }}
+            className={`text-line flex items-center gap-4 ${lit[lines.length + i] ? "lit" : ""}`}
+          >
+            <div className="h-10 w-10 rounded-xl border border-primary/30 bg-primary/10 flex items-center justify-center shrink-0">
+              <Icon className="h-5 w-5 text-primary" />
+            </div>
+            <span className="text-foreground font-body">{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,29 +133,7 @@ export function ContactForm() {
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <Reveal direction="left">
-            <div className="space-y-8">
-              <h2 className="text-4xl lg:text-5xl font-headline font-bold">Si has llegado hasta aquí, ya lo has entendido</h2>
-              <p className="text-muted-foreground text-lg font-body leading-relaxed">
-                Trabajamos con pocos encargos cada mes. Si quieres que el siguiente sea el tuyo, déjanos tus datos.
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  { title: "Atención directa, sin intermediarios", icon: "💎" },
-                  { title: "Proceso serio, sin improvisaciones", icon: "🛡️" },
-                  { title: "Entrega lista, sin sorpresas", icon: "🔑" }
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center space-x-4">
-                    <div className="h-12 w-12 rounded-xl bg-white/5 flex items-center justify-center text-xl">
-                      {feature.icon}
-                    </div>
-                    <span className="font-medium text-lg">{feature.title}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+          <IlluminateText />
 
           <Reveal direction="right" delay={150}>
             <div className="glass-morphism p-8 rounded-3xl space-y-6">

@@ -105,7 +105,7 @@ export function Hero() {
                   variant="outline"
                   className="border-white/20 hover:bg-white/5 text-md px-10 h-14 rounded-full transition-all group w-full"
                 >
-                  Encontrar mi coche ideal
+                  Conversa con nuestra IA
                   <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </DialogTrigger>
