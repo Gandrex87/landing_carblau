@@ -15,24 +15,23 @@ const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de b
 
 export function Hero() {
   return (
-    <section className="relative pt-24 pb-8 overflow-hidden">
+    <section className="relative pt-40 pb-16 overflow-hidden">
       {/* Ambient orbs */}
       <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/25 rounded-full blur-[140px] -mr-56 -mt-56 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] -ml-32 -mb-32 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
-          <h1 className="text-4xl lg:text-6xl font-headline font-bold leading-tight tracking-tight">
-            No somos una tienda de coches al uso. <br />
-            <span className="gradient-text">Y no queremos serlo.</span>
+        <div className="max-w-4xl mx-auto text-center space-y-10 animate-fade-in">
+          <h1 className="text-4xl lg:text-6xl font-headline font-bold leading-snug tracking-tight">
+            No somos una tienda de coches al uso. <span className="gradient-text">Y no queremos serlo.</span>
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
             Aquí no te vendemos lo que tenemos. Buscamos lo que encaja contigo.
           </p>
 
-          <div className="flex flex-col items-center gap-3 pt-2 w-full max-w-xs mx-auto">
+          <div className="flex flex-col items-center gap-3 w-full max-w-xs mx-auto">
 
             {/* Arriba — Hablar con nosotros */}
             <Dialog>
@@ -41,7 +40,7 @@ export function Hero() {
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 text-md px-10 h-14 rounded-full transition-all shadow-xl shadow-primary/20 w-full"
                 >
-                  Hablar con nosotros
+                  Habla con nosotros
                   <MessageSquare className="ml-2 h-5 w-5" />
                 </Button>
               </DialogTrigger>

@@ -13,14 +13,11 @@ import { Gem, ScanSearch, Handshake } from "lucide-react";
 
 const lines = [
   { text: "No somos para todo el mundo. Y lo decimos en serio.", className: "text-4xl lg:text-5xl font-headline font-bold text-foreground" },
-  { text: "Si quieres llevarte un coche hoy mismo,\nno somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos", className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug" },
-  { text: "hablemos.", className: "text-4xl lg:text-5xl font-headline font-bold text-primary" },
+  { text: "Si quieres llevarte un coche hoy mismo,\nno somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablemos", className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug" }
 ];
 
 const features = [
   { Icon: Gem,         text: "Trabajamos con pocos encargos cada mes" },
-  { Icon: ScanSearch,  text: "Búsqueda personalizada, no catálogo" },
-  { Icon: Handshake,   text: "Te acompañamos hasta el final" },
 ];
 
 const TOTAL = lines.length + features.length;
@@ -65,7 +62,7 @@ function IlluminateText() {
           {line.text}
         </div>
       ))}
-      <div className="pt-4 space-y-4">
+      <div className="pt-4 flex flex-col items-center gap-4">
         {features.map(({ Icon, text }, i) => (
           <div
             key={i}
@@ -131,74 +128,76 @@ export function ContactForm() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[130px] -ml-40 -mb-40 pointer-events-none" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] -mr-24 -mt-24 pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-6 max-w-2xl relative z-10 flex flex-col items-center gap-14">
+        {/* Texto centrado encima */}
+        <div className="w-full text-center">
           <IlluminateText />
+        </div>
 
-          <Reveal direction="right" delay={150}>
-            <div className="glass-morphism p-8 rounded-3xl space-y-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nombre</Label>
-                    <Input
-                      id="name"
-                      placeholder="Tu nombre"
-                      className="bg-white/10 border-white/20 rounded-xl"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Teléfono</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+34 600 000 000"
-                      className="bg-white/10 border-white/20 rounded-xl"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
+        {/* Formulario centrado */}
+        <Reveal direction="up" delay={150} className="w-full">
+          <div className="glass-morphism p-8 rounded-3xl space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="name">Nombre</Label>
                   <Input
-                    id="email"
-                    type="email"
-                    placeholder="contacto@carblau.com"
+                    id="name"
+                    placeholder="Tu nombre"
                     className="bg-white/10 border-white/20 rounded-xl"
                     required
-                    value={formData.email}
+                    value={formData.name}
                     onChange={handleChange}
                   />
                 </div>
-
                 <div className="space-y-2">
-                  <Label htmlFor="message">Cuéntanos qué necesitas</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Ej: SUV familiar híbrido, presupuesto 30k, uso diario en ciudad..."
-                    className="bg-white/10 border-white/20 rounded-xl min-h-[120px]"
-                    value={formData.message}
+                  <Label htmlFor="phone">Teléfono</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+34 600 000 000"
+                    className="bg-white/10 border-white/20 rounded-xl"
+                    required
+                    value={formData.phone}
                     onChange={handleChange}
                   />
                 </div>
+              </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 rounded-xl font-bold text-lg"
-                >
-                  {isSubmitting ? "Enviando..." : "Comenzar proceso"}
-                </Button>
-              </form>
-            </div>
-          </Reveal>
-        </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="contacto@carblau.com"
+                  className="bg-white/10 border-white/20 rounded-xl"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message">Cuéntanos qué necesitas</Label>
+                <Textarea
+                  id="message"
+                  placeholder="Ej: SUV familiar híbrido, presupuesto 30k, uso diario en ciudad..."
+                  className="bg-white/10 border-white/20 rounded-xl min-h-[120px]"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 rounded-xl font-bold text-lg"
+              >
+                {isSubmitting ? "Enviando..." : "Comenzar proceso"}
+              </Button>
+            </form>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
