@@ -31,7 +31,7 @@ export function Hero() {
             Aquí no te vendemos lo que tenemos. Buscamos lo que encaja contigo.
           </p>
 
-          <div className="flex flex-col items-center gap-3 w-full max-w-xs mx-auto">
+          <div className="flex flex-col items-center gap-5 w-full max-w-xs mx-auto">
 
             {/* Arriba — Hablar con nosotros */}
             <Dialog>

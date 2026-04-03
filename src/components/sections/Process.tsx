@@ -48,6 +48,16 @@ export function Process() {
 
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>
+          <div className="mb-10 text-center max-w-3xl mx-auto">
+            <p className="text-2xl lg:text-3xl font-headline font-light text-muted-foreground leading-snug">
+              Trabajamos con{" "}
+              <span className="text-foreground font-semibold">pocos encargos cada mes.</span>
+              {" "}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal>
           <div className="max-w-2xl mb-6">
             <h3 className="text-2xl lg:text-3xl font-headline font-bold">Cómo funcionamos</h3>
           </div>

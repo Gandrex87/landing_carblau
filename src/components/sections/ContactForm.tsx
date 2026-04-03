@@ -9,16 +9,19 @@ import { toast } from "@/hooks/use-toast";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Reveal } from "@/components/ui/reveal";
-import { Gem, ScanSearch, Handshake } from "lucide-react";
 
 const lines = [
-  { text: "No somos para todo el mundo. Y lo decimos en serio.", className: "text-4xl lg:text-5xl font-headline font-bold text-foreground" },
-  { text: "Si quieres llevarte un coche hoy mismo,\nno somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablemos", className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug" }
+  {
+    content: <><span>No somos para todo el mundo. </span><span className="gradient-text">Y lo decimos en serio.</span></>,
+    className: "text-4xl lg:text-5xl font-headline font-bold text-foreground"
+  },
+  {
+    content: <>Si quieres llevarte un coche hoy mismo,{"\n"}no somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablamos</>,
+    className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug whitespace-pre-line"
+  },
 ];
 
-const features = [
-  { Icon: Gem,         text: "Trabajamos con pocos encargos cada mes" },
-];
+const features: { Icon: React.ElementType; text: string }[] = [];
 
 const TOTAL = lines.length + features.length;
 
@@ -57,9 +60,9 @@ function IlluminateText() {
         <div
           key={i}
           ref={el => { refs.current[i] = el; }}
-          className={`text-line whitespace-pre-line ${line.className} ${lit[i] ? "lit" : ""}`}
+          className={`text-line ${line.className} ${lit[i] ? "lit" : ""}`}
         >
-          {line.text}
+          {line.content}
         </div>
       ))}
       <div className="pt-4 flex flex-col items-center gap-4">
