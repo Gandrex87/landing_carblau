@@ -48,12 +48,18 @@ export function Process() {
 
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>
-          <div className="mb-10 text-center max-w-3xl mx-auto">
+          <div className="mb-10 text-center max-w-3xl mx-auto space-y-4">
             <p className="text-2xl lg:text-3xl font-headline font-light text-muted-foreground leading-snug">
               Trabajamos con{" "}
               <span className="text-foreground font-semibold">pocos encargos cada mes.</span>
-              {" "}
             </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              <span className="text-foreground">Quedan <span className="text-primary font-semibold">2 plazas</span> disponibles este mes</span>
+            </div>
           </div>
         </Reveal>
 
