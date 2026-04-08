@@ -25,11 +25,11 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Image 
-            src="/logo_car_blau.png" 
-            alt="Carblau Logo" 
-            width={160} 
-            height={40} 
+          <Image
+            src="/logo_car_blau.png"
+            alt="Carblau Logo"
+            width={160}
+            height={40}
             className="h-10 w-auto object-contain"
             priority
           />

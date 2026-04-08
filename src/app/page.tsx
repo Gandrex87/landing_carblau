@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { TrustBar } from "@/components/sections/TrustBar";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
@@ -13,7 +12,6 @@ export default function Home() {
     <main className="min-h-screen font-body selection:bg-accent/30 selection:text-white">
       <Navbar />
       <Hero />
-      <TrustBar />
       <Process />
       <Testimonials />
       <ContactForm />
