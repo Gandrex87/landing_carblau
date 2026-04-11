@@ -6,24 +6,24 @@ import { Reveal } from "@/components/ui/reveal";
 
 const faqs = [
   {
-    q: "¿Cuánto cuesta el servicio?",
-    a: "Cobramos una tarifa fija por encargo, independiente del precio del coche. Te la comunicamos en la primera conversación, sin letra pequeña. No hay comisiones ocultas ni porcentajes sobre el precio final.",
+    q: "¿Cómo cobramos?",
+    a: "Nuestro trabajo está incluido dentro del precio final del coche.\n\nTú defines el presupuesto total, y nosotros nos encargamos de encontrar la mejor unidad posible dentro de ese margen, ajustando la operación para cubrir búsqueda, gestión, transporte, preparación y garantía.\n\nY si en algún caso realizamos servicios independientes (como sólo revisión de una unidad concreta, gestión o transporte), se presupuestan aparte de forma transparente.",
   },
   {
-    q: "¿En qué zonas trabajáis?",
-    a: "Operamos en toda España. La entrega se gestiona desde cualquier punto de origen hasta donde tú estés. También trabajamos con importaciones europeas si el encargo lo requiere.",
+    q: "¿En qué zona trabajáis?",
+    a: "Trabajamos en toda la Península. Te entregamos tu coche directamente donde estés.",
   },
   {
-    q: "¿Cuánto tarda el proceso?",
-    a: "Depende del encargo. Casos estándar: entre 1 y 3 semanas desde que definimos el perfil hasta que tienes el coche. Para búsquedas muy específicas puede extenderse, pero siempre con seguimiento constante.",
+    q: "¿Cuánto tarda el encargo?",
+    a: "En la mayoría de los casos, entre 1 y 3 semanas desde que definimos bien lo que buscas hasta que encontramos una unidad adecuada. En búsquedas muy concretas o exclusivas puede llevar algo más de tiempo.\n\nEn cualquier caso, te mantenemos informado en todo momento.",
   },
   {
     q: "¿Qué pasa si no encontráis lo que busco?",
-    a: "No cerramos el encargo hasta encontrar una opción que te convenza. Si tras una búsqueda exhaustiva no existe en el mercado en condiciones aceptables, te lo decimos claramente y no cobramos.",
+    a: "Si después de buscar con criterio no aparece una unidad que esté a la altura, te lo decimos con total claridad. Preferimos no cerrar una operación antes que recomendar algo que no lo merece.\n\nY, si tiene sentido, te plantearemos otras alternativas.",
   },
   {
-    q: "¿Puedo venir a ver el coche antes de decidir?",
-    a: "Sí. Organizamos la visita y si lo deseas te acompañamos. También podemos gestionar una inspección técnica independiente para que la decisión sea siempre tuya, con toda la información encima de la mesa.",
+    q: "¿Puedo ver el coche antes de decidir?",
+    a: "No trabajamos con stock, por lo que normalmente no tenemos una unidad concreta para enseñar.\n\nSi quieres conocer un modelo, te recomendamos ver alguna unidad disponible en el mercado para hacerte una idea real.\n\nNuestro enfoque es otro: localizar la unidad adecuada en nuestras fuentes, revisarla al detalle y asegurarnos de que merece la pena para que puedas usarla con tranquilidad.\n\nSi prefieres avanzar con una unidad que ya hayas visto, también podemos ayudarte con la revisión, los trámites o el transporte.",
   },
 ];
 
@@ -45,7 +45,9 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
         className="overflow-hidden transition-all duration-500 ease-in-out"
         style={{ maxHeight: open ? "300px" : "0px", opacity: open ? 1 : 0 }}
       >
-        <p className="text-muted-foreground text-sm leading-relaxed pb-5">{a}</p>
+        <div className="text-muted-foreground text-sm leading-relaxed pb-5 space-y-3">
+          {a.split("\n\n").map((p, i) => <p key={i}>{p}</p>)}
+        </div>
       </div>
     </div>
   );

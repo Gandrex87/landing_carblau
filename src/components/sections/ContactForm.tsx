@@ -12,13 +12,13 @@ import { Reveal } from "@/components/ui/reveal";
 
 const lines = [
   {
-    content: <><span>No somos para todo el mundo. </span><span className="gradient-text">Y lo decimos en serio.</span></>,
+    content: <><span>No somos para todo el mundo. Si quieres llevarte un coche hoy mismo, no somos tu sitio. </span><span className="gradient-text"> Si lo tuyo es decidir bien y reducir riesgos hablamos.</span></>,
     className: "text-4xl lg:text-5xl font-headline font-bold text-foreground"
   },
-  {
-    content: <>Si quieres llevarte un coche hoy mismo,{"\n"}no somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablamos</>,
-    className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug whitespace-pre-line"
-  },
+  // {
+  //   content: <>Si quieres llevarte un coche hoy mismo,{"\n"}no somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablamos</>,
+  //   className: "text-xl lg:text-2xl font-headline text-muted-foreground leading-snug whitespace-pre-line"
+  // },
 ];
 
 const features: { Icon: React.ElementType; text: string }[] = [];
