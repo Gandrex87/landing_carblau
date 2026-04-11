@@ -10,16 +10,16 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-const PHONE = "617914623";
+const PHONE = "647530888";
 const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de búsqueda de coche personalizado.");
 
 export function Hero() {
   return (
     <section className="relative pt-40 pb-16 overflow-hidden">
       {/* Ambient orbs */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/25 rounded-full blur-[140px] -mr-56 -mt-56 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] -ml-32 -mb-32 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/15 rounded-full blur-[140px] -mr-56 -mt-56 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] -ml-32 -mb-32 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-10 animate-fade-in">

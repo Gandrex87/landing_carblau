@@ -43,8 +43,8 @@ export function Process() {
   return (
     <section id="how-it-works" className="relative py-12 overflow-hidden">
       {/* Ambient orbs */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/15 rounded-full blur-[120px] -translate-y-1/2 -ml-32 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/8 rounded-full blur-[120px] -translate-y-1/2 -ml-32 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>

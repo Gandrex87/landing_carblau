@@ -142,8 +142,8 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
 export function Testimonials() {
   return (
     <section className="relative pt-12 pb-10 bg-secondary/30 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/10 rounded-full blur-[110px] -mr-20 -mb-20 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/5 rounded-full blur-[110px] -mr-20 -mb-20 pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <Reveal>
