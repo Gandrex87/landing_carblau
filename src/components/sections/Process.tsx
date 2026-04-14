@@ -19,21 +19,21 @@ const steps = [
     title: "Hablamos contigo",
     description:
       `No empezamos por los coches. 
-      Empezamos por ti: cómo usas el coche, qué no quieres repetir y qué esperas de este proceso. 
+      Empezamos por ti: cómo usas el coche, qué esperas de este proceso y qué no quieres repetir de experiencias pasadas.
       Si encajamos, definimos el encargo juntos.`,
     image: PlaceHolderImages.find(img => img.id === "step1-icon")!
   },
   {
     number: "02",
     title: "Iniciamos la búsqueda",
-    description: `Sin stock que rotar. Sin presión por cerrar.\nBuscamos en las mejores fuentes hasta encontrar la unidad que realmente encaja contigo — no la primera disponible.`,
+    description: `Sin stock que rotar. Sin presión por cerrar.\nBuscamos en las mejores fuentes hasta encontrar la unidad que realmente encaja contigo, no la primera disponible.`,
     image: PlaceHolderImages.find(img => img.id === "step2-icon")!
   },
   {
   number: "03",
   title: "Tu coche, en tu puerta",
   description: `En pocos días lo recibes listo para disfrutar: 
-  revisado al detalle, reacondicionado y con un plan claro de garantía, uso y mantenimiento.
+  revisado al detalle, reacondicionado, fiabilizado y con un plan claro de garantía, uso y mantenimiento.
 Sin letra pequeña. Sin sorpresas.`,
   image: PlaceHolderImages.find(img => img.id === "step3-icon")!
 }

@@ -15,11 +15,11 @@ const faqs = [
   },
   {
     q: "¿Cuánto tarda el encargo?",
-    a: "En la mayoría de los casos, entre 1 y 3 semanas desde que definimos bien lo que buscas hasta que encontramos una unidad adecuada. En búsquedas muy concretas o exclusivas puede llevar algo más de tiempo.\n\nEn cualquier caso, te mantenemos informado en todo momento.",
+    a: "En la mayoría de los casos, entre 1 y 3 semanas desde que definimos bien lo que buscas hasta que te entregamos el coche. En búsquedas muy concretas o exclusivas puede llevar algo más de tiempo.\n\nEn cualquier caso, te mantenemos informado en todo momento de todos los pasos.",
   },
   {
     q: "¿Qué pasa si no encontráis lo que busco?",
-    a: "Si después de buscar con criterio no aparece una unidad que esté a la altura, te lo decimos con total claridad. Preferimos no cerrar una operación antes que recomendar algo que no lo merece.\n\nY, si tiene sentido, te plantearemos otras alternativas.",
+    a: "Si después de buscar con criterio no aparece una unidad que esté a la altura, te lo decimos con total claridad. Preferimos no cerrar una operación antes que entregar algo que no lo merece.\n\nY, si tiene sentido, te plantearemos otras alternativas.",
   },
   {
     q: "¿Puedo ver el coche antes de decidir?",

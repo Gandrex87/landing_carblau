@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Play } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -18,6 +19,7 @@ const testimonials = [
   {
     type: "image" as const,
     media: "/casos_reales_2.png",
+    mediaAlt: "/img5.webp",
     model: "Toyota RAV4 Hybrid",
     brief: "Clienta que usa el coche a diario en ciudad, viajes de fin de semana ocasionales, presupuesto ajustado.",
     proposal: "Le proponemos el RAV4 Hybrid por su fiabilidad contrastada, bajo coste de mantenimiento y consumo real en ciudad.",
@@ -96,17 +98,40 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 // ── Media (imagen o vídeo) ────────────────────────────────────────────────────
 function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   const [playing, setPlaying] = useState(false);
+  const [showAlt, setShowAlt] = useState(false);
+
+  useEffect(() => {
+    if (item.type !== "image" || !item.mediaAlt) return;
+    const interval = setInterval(() => setShowAlt(prev => !prev), 3000);
+    return () => clearInterval(interval);
+  }, [item]);
 
   if (item.type === "image") {
     return (
-      <div
-        className="w-full aspect-[4/3] overflow-hidden bg-secondary"
-        style={{
-          backgroundImage: `url(${item.media})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      <div className="w-full aspect-[4/3] overflow-hidden bg-secondary relative">
+        {/* Imagen principal */}
+        <div
+          className="absolute inset-0 transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url(${item.media})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: showAlt ? 0 : 1,
+          }}
+        />
+        {/* Imagen alternativa (interior) */}
+        {item.mediaAlt && (
+          <div
+            className="absolute inset-0 transition-opacity duration-1000"
+            style={{
+              backgroundImage: `url(${item.mediaAlt})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: showAlt ? 1 : 0,
+            }}
+          />
+        )}
+      </div>
     );
   }
 
@@ -148,34 +173,42 @@ export function Testimonials() {
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <Reveal>
           <div className="max-w-2xl mb-6">
-            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Casos reales</h3>
+            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Blau Reviews</h3>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {testimonials.map((item, i) => (
-            <Reveal key={i} delay={i * 130} direction="scale" className="h-full">
-              <TiltCard>
-                <MediaCard item={item} />
+        <Carousel opts={{ align: "start", loop: false }} className="w-full">
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {testimonials.map((item, i) => (
+              <CarouselItem key={i} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <Reveal delay={i * 130} direction="scale" className="h-full">
+                  <TiltCard>
+                    <MediaCard item={item} />
 
-                <div className="p-6 flex flex-col gap-4 flex-1">
-                  <p className="font-headline font-bold text-foreground text-base">{item.model}</p>
+                    <div className="p-6 flex flex-col gap-4 flex-1">
+                      <p className="font-headline font-bold text-foreground text-base">{item.model}</p>
 
-                  <div className="space-y-3 text-sm leading-relaxed">
-                    <p className="text-muted-foreground">{item.brief}</p>
-                    <p className="text-foreground">{item.proposal}</p>
-                    <p className="text-muted-foreground">{item.risks}</p>
-                  </div>
+                      <div className="space-y-3 text-sm leading-relaxed">
+                        <p className="text-muted-foreground">{item.brief}</p>
+                        <p className="text-foreground">{item.proposal}</p>
+                        <p className="text-muted-foreground">{item.risks}</p>
+                      </div>
 
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="font-semibold text-foreground text-sm">{item.name}</p>
-                    <p className="text-xs text-muted-foreground">{item.location}</p>
-                  </div>
-                </div>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
+                      <div className="mt-auto pt-4 border-t border-border">
+                        <p className="font-semibold text-foreground text-sm">{item.name}</p>
+                        <p className="text-xs text-muted-foreground">{item.location}</p>
+                      </div>
+                    </div>
+                  </TiltCard>
+                </Reveal>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex justify-end gap-2 mt-6 lg:hidden">
+            <CarouselPrevious className="static translate-y-0 h-11 w-11 border-white/10" />
+            <CarouselNext className="static translate-y-0 h-11 w-11 border-white/10" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );
