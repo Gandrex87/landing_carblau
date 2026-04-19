@@ -17,10 +17,16 @@ const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de b
 
 const lines = [
   {
-    content: <><span>No somos para todo el mundo. 
-      Si quieres llevarte un coche hoy mismo, no somos tu sitio. </span><span className="gradient-text"> 
-        Si lo tuyo es decidir bien y reducir riesgos, hablamos.</span></>,
-    className: "text-4xl lg:text-5xl font-headline font-bold text-foreground"
+    content: (
+      <>
+        <span className="gradient-text">No somos para todo el mundo.</span>
+        <br />
+        <span className="text-foreground">Si quieres llevarte un coche hoy mismo, no somos tu sitio.</span>
+        <br />
+        <span className="gradient-text">Si lo tuyo es decidir bien y reducir riesgos, hablamos.</span>
+      </>
+    ),
+    className: "text-4xl lg:text-5xl font-headline font-bold leading-snug"
   },
   // {
   //   content: <>Si quieres llevarte un coche hoy mismo,{"\n"}no somos tu sitio. Si lo tuyo es decidir bien y reducir riesgos hablamos</>,

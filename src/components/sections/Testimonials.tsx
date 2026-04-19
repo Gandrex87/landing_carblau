@@ -18,8 +18,9 @@ const testimonials = [
   },
   {
     type: "image" as const,
-    media: "/casos_reales_2.png",
-    mediaAlt: "/img5.webp",
+    media: "/casos_reales_2.webp",
+    mediaAlt: "/casos_reales_2_1.webp",
+    mediaAlt2: "/casos_reales_2_2.webp",
     model: "Toyota RAV4 Hybrid",
     brief: "Clienta que usa el coche a diario en ciudad, viajes de fin de semana ocasionales, presupuesto ajustado.",
     proposal: "Le proponemos el RAV4 Hybrid por su fiabilidad contrastada, bajo coste de mantenimiento y consumo real en ciudad.",
@@ -98,39 +99,33 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 // ── Media (imagen o vídeo) ────────────────────────────────────────────────────
 function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   const [playing, setPlaying] = useState(false);
-  const [showAlt, setShowAlt] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const images = item.type === "image"
+    ? [item.media, item.mediaAlt, (item as typeof item & { mediaAlt2?: string }).mediaAlt2].filter(Boolean) as string[]
+    : [];
 
   useEffect(() => {
-    if (item.type !== "image" || !item.mediaAlt) return;
-    const interval = setInterval(() => setShowAlt(prev => !prev), 3000);
+    if (item.type !== "image" || images.length <= 1) return;
+    const interval = setInterval(() => setImageIndex(prev => (prev + 1) % images.length), 3000);
     return () => clearInterval(interval);
-  }, [item]);
+  }, [item, images.length]);
 
   if (item.type === "image") {
     return (
       <div className="w-full aspect-[4/3] overflow-hidden bg-secondary relative">
-        {/* Imagen principal */}
-        <div
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{
-            backgroundImage: `url(${item.media})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: showAlt ? 0 : 1,
-          }}
-        />
-        {/* Imagen alternativa (interior) */}
-        {item.mediaAlt && (
+        {images.map((src, idx) => (
           <div
+            key={src}
             className="absolute inset-0 transition-opacity duration-1000"
             style={{
-              backgroundImage: `url(${item.mediaAlt})`,
+              backgroundImage: `url(${src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              opacity: showAlt ? 1 : 0,
+              opacity: imageIndex === idx ? 1 : 0,
             }}
           />
-        )}
+        ))}
       </div>
     );
   }
