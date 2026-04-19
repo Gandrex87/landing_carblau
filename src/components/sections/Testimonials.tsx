@@ -133,7 +133,7 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   return (
     <div className="w-full aspect-[4/3] overflow-hidden bg-secondary relative">
       {playing ? (
-        <video src={item.media} autoPlay controls className="w-full h-full object-cover" />
+        <video src={item.media} autoPlay controls preload="metadata" className="w-full h-full object-cover" />
       ) : (
         <>
           <video
