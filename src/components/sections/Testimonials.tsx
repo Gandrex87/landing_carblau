@@ -7,14 +7,13 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const testimonials = [
   {
-    type: "video" as const,
-    media: "/video/Video_busqueda.mp4",
-    model: "Volvo XC90 Recharge T8",
-    brief: "Cliente que necesita 7 plazas, capacidad para pistas y nieve, fiable y confortable.",
-    proposal: "Le proponemos el XC90 T8 por su equilibrio entre espacio, tracción AWD y consumo real moderado en uso híbrido.",
-    risks: "Le explicamos los riesgos y aspectos de fiabilidad así como los trucos para que nunca le dé problemas.",
-    name: "Carlos M.",
-    location: "Madrid",
+    type: "image" as const,
+    media: "/image_car_1_1.webp",
+    mediaAlt: "/image_car_1_2.webp",
+    model: "Mercedes-Benz C220 CDi (2007)",
+    brief: "Guillermo recorre más de 30.000 km al año. Su Alfa Romeo 166 ya superaba los 400.000 km y buscaba algo capaz de ofrecerle lo mismo: comodidad, solvencia y la tranquilidad de poder afrontar otros 300.000 km sin grandes intervenciones mecánicas.",
+    proposal: "Entre las distintas opciones, encontramos en el Mercedes Clase C 220 CDI una de las mejores respuestas. Se trata de una berlina cómoda, seria y, todavía, construida para durar.",
+    risks: "Localizamos una unidad en muy buen estado y, después de revisarla y reacondicionarla a fondo, quedó prácticamente como nueva. Más que estrenar coche, Guillermo quería volver a sentir esa tranquilidad de saber que podía hacer miles de kilómetros sin pensar en averías.",
   },
   {
     type: "image" as const,
@@ -22,20 +21,16 @@ const testimonials = [
     mediaAlt: "/casos_reales_2_2.webp",
     model: "Kia Sorento 2.2 CRDI 4x4 (2014)",
     brief: "Juan necesitaba un 7 plazas fiable para recibir a hijos y nietos, con capacidad para moverse por caminos y nieve sin problemas.",
-    proposal: "Le recomendamos un Kia Sorento diésel robusto, cómodo en trayectos cortos y mixtos, y con la versatilidad que buscaba tanto para la familia como para salir del asfalto.",
-    risks: "Encontramos una unidad en muy buen estado, la revisamos a fondo y la dejamos prácticamente como nueva. Nuestro cliente tiene lo que buscaba.",
-    name: "Juan",
-    location: "Valencia",
+    proposal: "Le recomendamos un Kia Sorento diésel, cómodo y con la versatilidad que buscaba tanto para la familia como para salir del asfalto. Pero sobre todo robusto y fiable en trayectos cortos y mixtos.",
+    risks: "Encontramos una unidad en muy buen estado y la dejamos prácticamente como nueva. Nuestro cliente tiene lo que buscaba. Lo que más valoró Juan fue no tener que preocuparse de nada y sentir que, por fin, estaba comprando con criterio y no por impulso.",
   },
   {
-    type: "video" as const,
-    media: "/video/Premium_Car.mp4",
+    type: "image" as const,
+    media: "/image_car_3_1.webp",
     model: "Peugeot Partner",
     brief: "Thomas necesitaba una furgoneta de trabajo para el campo: trayectos muy cortos, repetidos varias veces al día, con presupuesto ajustado y cero complicaciones.",
-    proposal: "Le propusimos una Peugeot Partner de la generación clásica, conocida por su robustez y sencillez mecánica — mucho más honesta para ese uso que opciones más modernas.",
-    risks: "Encontramos una unidad de único propietario, la reacondicionamos a fondo: revisamos el sistema de refrigeración, elevamos la altura y montamos neumáticos reforzados para caminos. Thomas la recibió y se sorprendió del estado. Por fin, un vehículo que simplemente cumple.",
-    name: "Thomas",
-    location: "Valencia",
+    proposal: "Le propusimos una Peugeot Partner de la primera generación, conocida por su robustez y sencillez mecánica, mucho más honesta para ese uso que opciones más modernas.",
+    risks: "Encontramos una unidad de único propietario, la reacondicionamos a fondo: revisamos el sistema de refrigeración, elevamos la altura y montamos neumáticos reforzados para caminos. Thomas la recibió y se sorprendió del estado. Por fin, un vehículo que cumple sin protestar. Lo que Thomas buscaba no era un coche más moderno, sino una herramienta de trabajo fiable que simplemente cumpliera cada día.",
   },
 ];
 
@@ -167,7 +162,8 @@ export function Testimonials() {
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <Reveal>
           <div className="max-w-2xl mb-6">
-            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Blau Reviews</h3>
+            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Decisiones CarBlau</h3>
+            <p className="text-muted-foreground text-base mt-2">Coches que ya forman parte de la vida de nuestros clientes</p>
           </div>
         </Reveal>
 
@@ -189,8 +185,6 @@ export function Testimonials() {
                       </div>
 
                       <div className="mt-auto pt-4 border-t border-border">
-                        <p className="font-semibold text-foreground text-sm">{item.name}</p>
-                        <p className="text-xs text-muted-foreground">{item.location}</p>
                       </div>
                     </div>
                   </TiltCard>
