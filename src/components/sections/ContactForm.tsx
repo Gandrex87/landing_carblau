@@ -101,7 +101,6 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: "",
     message: ""
   });
 
@@ -120,7 +119,7 @@ export function ContactForm() {
         description: "Un asesor experto de Carblau te contactará en menos de 24 horas.",
       });
 
-      setFormData({ name: "", phone: "", email: "", message: "" });
+      setFormData({ name: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -229,19 +228,6 @@ export function ContactForm() {
                     onChange={handleChange}
                   />
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="contacto@carblau.com"
-                  className="bg-white/10 border-white/20 rounded-xl"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                />
               </div>
 
               <div className="space-y-2">
