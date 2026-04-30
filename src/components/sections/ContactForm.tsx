@@ -10,7 +10,7 @@ import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Reveal } from "@/components/ui/reveal";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { MessageSquare, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const PHONE = "647530888";
 const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de búsqueda de coche personalizado.");
@@ -19,11 +19,11 @@ const lines = [
   {
     content: (
       <>
-        <span className="gradient-text">No somos para todo el mundo.</span>
+        <span style={{ color: "#F3EBDD" }}>No somos para todo el mundo.</span>
         <br />
-        <span className="text-foreground">Si quieres llevarte un coche hoy mismo, no somos tu sitio.</span>
+        <span style={{ color: "#FFAD64" }}>Si quieres llevarte un coche hoy mismo, no somos tu sitio.</span>
         <br />
-        <span className="gradient-text">Si lo tuyo es decidir bien y reducir riesgos, hablamos.</span>
+        <span style={{ color: "#F3EBDD" }}>Si lo tuyo es decidir bien y reducir riesgos, hablamos.</span>
       </>
     ),
     className: "text-4xl lg:text-5xl font-headline font-bold leading-snug"
@@ -138,10 +138,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-secondary/20 overflow-hidden">
-      {/* Ambient orbs */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[130px] -ml-40 -mb-40 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] -mr-24 -mt-24 pointer-events-none" />
+    <section id="contact" className="relative py-24 overflow-hidden">
 
       <div className="container mx-auto px-6 max-w-2xl relative z-10 flex flex-col items-center gap-14">
         {/* Texto centrado encima */}
@@ -158,10 +155,10 @@ export function ContactForm() {
               <DialogTrigger asChild>
                 <Button
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-xl font-bold text-base shadow-lg shadow-primary/20"
+                  style={{ backgroundColor: "#ADD4D3" }}
+                  className="w-full text-primary-foreground hover:opacity-90 h-14 rounded-xl font-bold text-base shadow-lg shadow-primary/20"
                 >
-                  <MessageSquare className="mr-2 h-5 w-5" />
-                  Habla con nosotros ahora
+                  Habla con nosotros directamente
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-sm w-[95vw] bg-background border-white/10">
@@ -244,10 +241,15 @@ export function ContactForm() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 rounded-xl font-bold text-lg"
+                style={{ backgroundColor: "#ADD4D3" }}
+                className="w-full text-accent-foreground hover:opacity-90 h-14 rounded-xl font-bold text-lg"
               >
-                {isSubmitting ? "Enviando..." : "Comenzar proceso"}
+                {isSubmitting ? "Enviando..." : "Empezar mi recomendación"}
               </Button>
+
+              <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                No compartiremos tus datos con nadie y no volveremos a llamarte ni escribir si nuestra propuesta no te interesa.
+              </p>
             </form>
           </div>
         </Reveal>

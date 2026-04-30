@@ -18,23 +18,25 @@ const steps = [
     number: "01",
     title: "Hablamos contigo",
     description:
-      `No empezamos por los coches. 
-      Empezamos por ti: cómo usas el coche, qué esperas de este proceso y qué no quieres repetir de experiencias pasadas.
-      Si encajamos, definimos el encargo juntos.`,
+      `Antes de buscar coches, entendemos cómo vives.
+      Qué necesitas de verdad.
+      Qué uso real tendrá.
+      Y qué errores no quieres repetir`,
     image: PlaceHolderImages.find(img => img.id === "step1-icon")!
   },
   {
     number: "02",
-    title: "Iniciamos la búsqueda",
-    description: `Sin stock que rotar. Sin presión por cerrar.\nBuscamos en las mejores fuentes hasta encontrar la unidad que realmente encaja contigo, no la primera disponible.`,
+    title: "Seleccionamos la unidad correcta",
+    description: `No tenemos stock ni presión por vender.\nBuscamos la unidad que merece la pena.
+    La dejamos como debe estar: fiable, cuidada y lista para durar.`,
     image: PlaceHolderImages.find(img => img.id === "step2-icon")!
   },
   {
   number: "03",
-  title: "Tu coche, en tu puerta",
-  description: `En pocos días lo recibes listo para disfrutar: 
-  revisado al detalle, reacondicionado, fiabilizado y con un plan claro de garantía, uso y mantenimiento.
-Sin letra pequeña. Sin sorpresas.`,
+  title: "Te lo entregamos listo",
+  description: `En unos pocos días lo recibes en casa. 
+  Sin dudas, sin sorpresas. Sin sensación de riesgo.
+  Con garantía, plan de mantenimiento y la tranquilidad de haber comprado bien.`,
   image: PlaceHolderImages.find(img => img.id === "step3-icon")!
 }
 ];
@@ -47,15 +49,6 @@ export function Process() {
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[100px] -mr-20 -mt-20 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <Reveal>
-          <div className="mb-10 text-center max-w-3xl mx-auto">
-            <p className="text-2xl lg:text-3xl font-headline font-light text-muted-foreground leading-snug">
-              Trabajamos con{" "}
-              <span className="text-foreground font-semibold">pocos encargos cada mes.</span>
-            </p>
-          </div>
-        </Reveal>
-
         <Reveal>
           <div className="max-w-2xl mb-6">
             <h3 className="text-2xl lg:text-3xl font-headline font-bold">Cómo funcionamos</h3>
@@ -84,7 +77,7 @@ export function Process() {
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           data-ai-hint={step.image.imageHint}
                         />
-                        <div className="absolute top-3 left-3 bg-primary text-primary-foreground font-bold text-xs h-8 w-8 flex items-center justify-center rounded-lg shadow-2xl z-10">
+                        <div style={{ backgroundColor: "#ADD4D3" }} className="absolute top-3 left-3 text-primary-foreground font-bold text-xs h-8 w-8 flex items-center justify-center rounded-lg shadow-2xl z-10">
                           {step.number}
                         </div>
                       </div>

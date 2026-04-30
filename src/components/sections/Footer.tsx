@@ -13,7 +13,7 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/" className="inline-block">
               <Image 
-                src="/logo_car_blau.png" 
+                src="/logo_car_blau.webp" 
                 alt="Carblau Logo" 
                 width={140} 
                 height={35} 

@@ -26,7 +26,7 @@ export function Navbar() {
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo_car_blau.png"
+            src="/logo_car_blau.webp"
             alt="Carblau Logo"
             width={160}
             height={40}

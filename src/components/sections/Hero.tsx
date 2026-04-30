@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { MoveRight, Sparkles, MessageSquare, Phone } from "lucide-react";
+import { Sparkles, Phone } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -15,19 +16,26 @@ const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de b
 
 export function Hero() {
   return (
-    <section className="relative pt-40 pb-16 overflow-hidden">
-      {/* Ambient orbs */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/15 rounded-full blur-[140px] -mr-56 -mt-56 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[120px] -ml-32 -mb-32 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative pt-40 pb-16 overflow-hidden min-h-[56.25vw]">
+      {/* Background image */}
+      <Image
+        src="/fondos/paisaje_fondo_1.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center pointer-events-none -z-10"
+      />
+      {/* Dark overlay for legibility */}
+      <div className="absolute inset-0 bg-background/70 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-10 animate-fade-in">
           <h1 className="text-4xl lg:text-6xl font-headline font-bold leading-snug tracking-tight">
-            No somos una tienda de coches al uso. <span className="gradient-text">Y no queremos serlo.</span>
+            <span style={{ color: "#F3EBDD" }}>No somos una tienda de coches al uso.</span> <span style={{ color: "#FFAD64" }}>Y no queremos serlo.</span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-body leading-relaxed">
+          <p style={{ color: "#F3EBDD" }} className="text-xl max-w-2xl mx-auto font-body leading-relaxed">
             Aquí no te vendemos lo que tenemos. Buscamos lo que encaja contigo.
           </p>
 
@@ -38,10 +46,10 @@ export function Hero() {
               <DialogTrigger asChild>
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-md px-10 h-14 rounded-full transition-all shadow-xl shadow-primary/20 w-full"
+                  style={{ backgroundColor: "#ADD4D3" }}
+                  className="text-primary-foreground hover:opacity-90 text-md px-10 h-14 rounded-full transition-all shadow-xl shadow-primary/20 w-full"
                 >
                   Habla con nosotros
-                  <MessageSquare className="ml-2 h-5 w-5" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-sm w-[95vw] bg-background border-white/10">
@@ -92,7 +100,7 @@ export function Hero() {
             {/* Separador */}
             <div className="flex items-center gap-3 w-full">
               <div className="flex-1 h-px bg-white/15" />
-              <span className="text-sm text-muted-foreground whitespace-nowrap">o si prefieres,</span>
+              <span style={{ color: "#F3EBDD" }} className="text-sm whitespace-nowrap">o si prefieres,</span>
               <div className="flex-1 h-px bg-white/15" />
             </div>
 
@@ -102,10 +110,10 @@ export function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/20 hover:bg-white/5 text-md px-10 h-14 rounded-full transition-all group w-full"
+                  style={{ color: "#ADD4D3", borderColor: "#ADD4D3" }}
+                  className="hover:bg-white/5 text-md px-10 h-14 rounded-full transition-all group w-full"
                 >
-                  Conversa con nuestra IA
-                  <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  Descubre qué coche encaja contigo
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-5xl w-[95vw] h-[90vh] md:h-[85vh] p-0 bg-background border-white/10 overflow-hidden flex flex-col">
@@ -131,6 +139,12 @@ export function Hero() {
             </Dialog>
 
           </div>
+
+          <p style={{ color: "#F3EBDD" }} className="text-base lg:text-lg font-headline font-light leading-snug max-w-2xl mx-auto pt-6">
+            Trabajamos con <span className="font-semibold">pocos encargos cada mes.</span>
+            <br />
+            Porque hacer bien este trabajo no admite prisas.
+          </p>
         </div>
       </div>
     </section>

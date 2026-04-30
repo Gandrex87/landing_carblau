@@ -5,11 +5,11 @@
 @layer base {
   :root {
     /* Basado en #00adef (HSL: 197 100% 47%) */
-    --background: 210 25% 7%;
+    --background: 22 17% 9%;
     --foreground: 210 20% 98%;
     --card: 210 20% 10%;
     --card-foreground: 210 20% 98%;
-    --popover: 210 25% 7%;
+    --popover: 22 17% 9%;
     --popover-foreground: 210 20% 98%;
     --primary: 197 100% 47%;
     --primary-foreground: 197 100% 10%;
