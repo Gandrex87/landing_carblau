@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Plus, Minus } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -34,10 +35,10 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 text-left gap-4 group"
       >
-        <span className="font-headline font-semibold text-base text-foreground group-hover:text-primary transition-colors">
+        <span className="font-headline font-semibold text-base text-foreground transition-colors group-hover:[color:#ADD4D3]">
           {q}
         </span>
-        <span className="shrink-0 h-7 w-7 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover:border-primary group-hover:text-primary transition-colors">
+        <span className="shrink-0 h-7 w-7 rounded-full border border-border flex items-center justify-center text-muted-foreground transition-colors group-hover:[color:#ADD4D3] group-hover:[border-color:#ADD4D3]">
           {open ? <Minus className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
         </span>
       </button>
@@ -57,19 +58,30 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative py-20 overflow-hidden min-h-[45vw]">
+      {/* Background image */}
+      <Image
+        src="/fondos/paisaje_web2.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        style={{ objectPosition: "50% 85%" }}
+        className="object-cover pointer-events-none -z-10"
+      />
+      {/* Dark overlay for legibility */}
+      <div className="absolute inset-0 bg-background/70 pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-3xl relative z-10">
-        <Reveal>
-          <div className="text-center mb-12">
-            <h3 className="text-2xl lg:text-3xl font-headline font-bold mb-3">Preguntas frecuentes</h3>
-            <p className="text-muted-foreground">Lo que nos preguntan antes de dar el paso.</p>
-          </div>
-        </Reveal>
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        <div className="max-w-3xl">
+          <Reveal>
+            <div className="mb-12">
+              <h3 className="text-2xl lg:text-3xl font-headline font-bold mb-3">Antes de dar el paso</h3>
+              <p className="text-muted-foreground">Las preguntas que más importan a nuestros clientes</p>
+            </div>
+          </Reveal>
 
-        <Reveal delay={100}>
-          <div className="rounded-2xl border border-border bg-card px-6">
+          <Reveal delay={100}>
+            <div className="rounded-2xl glass-morphism px-6">
             {faqs.map((faq, i) => (
               <FAQItem
                 key={i}
@@ -80,7 +92,8 @@ export function FAQ() {
               />
             ))}
           </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

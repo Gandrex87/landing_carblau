@@ -16,7 +16,7 @@ import { Reveal } from "@/components/ui/reveal";
 const steps = [
   {
     number: "01",
-    title: "Hablamos contigo",
+    title: "Primero te escuchamos",
     description:
       `Antes de buscar coches, entendemos cómo vives.
       Qué necesitas de verdad.
@@ -51,7 +51,7 @@ export function Process() {
       <div className="container mx-auto px-6 relative z-10">
         <Reveal>
           <div className="max-w-2xl mb-6">
-            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Cómo funcionamos</h3>
+            <h3 className="text-2xl lg:text-3xl font-headline font-bold">Cómo trabajamos</h3>
           </div>
         </Reveal>
 

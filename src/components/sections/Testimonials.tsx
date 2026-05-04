@@ -1,9 +1,14 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Play } from "lucide-react";
+import { Play, ChevronDown, ChevronUp, Phone } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
+const PHONE = "647530888";
+const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de búsqueda de coche personalizado.");
 
 const testimonials = [
   {
@@ -152,10 +157,45 @@ function MediaCard({ item }: { item: (typeof testimonials)[number] }) {
   );
 }
 
+// ── Texto expandible ──────────────────────────────────────────────────────────
+function ExpandableText({ item }: { item: (typeof testimonials)[number] }) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <>
+      <div className="space-y-3 text-sm leading-relaxed">
+        <p className="text-muted-foreground">{item.brief}</p>
+        {expanded && (
+          <>
+            <p className="text-foreground">{item.proposal}</p>
+            <p className="text-muted-foreground">{item.risks}</p>
+          </>
+        )}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => setExpanded(prev => !prev)}
+        className="mt-auto pt-4 border-t border-border flex items-center gap-2 text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+      >
+        {expanded ? (
+          <>
+            Mostrar menos <ChevronUp className="h-4 w-4" />
+          </>
+        ) : (
+          <>
+            Leer más <ChevronDown className="h-4 w-4" />
+          </>
+        )}
+      </button>
+    </>
+  );
+}
+
 // ── Sección ───────────────────────────────────────────────────────────────────
 export function Testimonials() {
   return (
-    <section className="relative pt-12 pb-10 bg-secondary/30 overflow-hidden">
+    <section style={{ backgroundColor: "#1C1714" }} className="relative pt-12 pb-10 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/8 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent/5 rounded-full blur-[110px] -mr-20 -mb-20 pointer-events-none" />
 
@@ -178,14 +218,7 @@ export function Testimonials() {
                     <div className="p-6 flex flex-col gap-4 flex-1">
                       <p className="font-headline font-bold text-foreground text-base">{item.model}</p>
 
-                      <div className="space-y-3 text-sm leading-relaxed">
-                        <p className="text-muted-foreground">{item.brief}</p>
-                        <p className="text-foreground">{item.proposal}</p>
-                        <p className="text-muted-foreground">{item.risks}</p>
-                      </div>
-
-                      <div className="mt-auto pt-4 border-t border-border">
-                      </div>
+                      <ExpandableText item={item} />
                     </div>
                   </TiltCard>
                 </Reveal>
@@ -197,6 +230,55 @@ export function Testimonials() {
             <CarouselNext className="static translate-y-0 h-11 w-11 border-white/10" />
           </div>
         </Carousel>
+
+        <Reveal direction="up" delay={200}>
+          <div className="mt-14 flex flex-col items-center text-center gap-4">
+            <p className="text-muted-foreground text-base">
+              ¿Te identificas con alguna de estas historias?
+            </p>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  style={{ backgroundColor: "#ADD4D3" }}
+                  className="text-primary-foreground hover:opacity-90 text-md px-10 h-14 rounded-full transition-all shadow-xl shadow-primary/20"
+                >
+                  Cuéntanos tu caso
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-sm w-[95vw] bg-background border-white/10">
+                <DialogHeader className="mb-2">
+                  <DialogTitle className="text-2xl font-headline font-bold">¿Cómo prefieres contactar?</DialogTitle>
+                  <p className="text-sm text-muted-foreground">Elige la opción que más te convenga.</p>
+                </DialogHeader>
+                <div className="flex flex-col gap-4 pt-2">
+                  <a href={`tel:+34${PHONE}`} className="w-full">
+                    <Button size="lg" style={{ backgroundColor: "#ADD4D3" }} className="w-full h-16 rounded-2xl hover:opacity-90 text-primary-foreground flex items-center gap-4 text-left px-6 shadow-lg">
+                      <div className="h-10 w-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                        <Phone className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-base leading-tight">Llamar ahora</p>
+                        <p className="text-sm opacity-80 font-normal">+34 {PHONE}</p>
+                      </div>
+                    </Button>
+                  </a>
+                  <a href={`https://wa.me/34${PHONE}?text=${WHATSAPP_MSG}`} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button size="lg" style={{ backgroundColor: "#1D412B" }} className="w-full h-16 rounded-2xl hover:opacity-90 text-white flex items-center gap-4 text-left px-6 shadow-lg">
+                      <div className="h-10 w-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+                        <svg className="h-5 w-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                      </div>
+                      <div>
+                        <p className="font-bold text-base leading-tight">WhatsApp</p>
+                        <p className="text-sm opacity-80 font-normal">Escríbenos ahora</p>
+                      </div>
+                    </Button>
+                  </a>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

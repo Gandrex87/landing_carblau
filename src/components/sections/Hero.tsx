@@ -61,7 +61,8 @@ export function Hero() {
                   <a href={`tel:+34${PHONE}`} className="w-full">
                     <Button
                       size="lg"
-                      className="w-full h-16 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-4 text-left px-6 shadow-lg shadow-primary/20"
+                      style={{ backgroundColor: "#ADD4D3" }}
+                      className="w-full h-16 rounded-2xl hover:opacity-90 text-primary-foreground flex items-center gap-4 text-left px-6 shadow-lg"
                     >
                       <div className="h-10 w-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
                         <Phone className="h-5 w-5" />
@@ -80,7 +81,8 @@ export function Hero() {
                   >
                     <Button
                       size="lg"
-                      className="w-full h-16 rounded-2xl bg-[#25D366] hover:bg-[#1ebe5d] text-white flex items-center gap-4 text-left px-6 shadow-lg shadow-[#25D366]/20"
+                      style={{ backgroundColor: "#1D412B" }}
+                      className="w-full h-16 rounded-2xl hover:opacity-90 text-white flex items-center gap-4 text-left px-6 shadow-lg"
                     >
                       <div className="h-10 w-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
                         <svg className="h-5 w-5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +143,7 @@ export function Hero() {
           </div>
 
           <p style={{ color: "#F3EBDD" }} className="text-base lg:text-lg font-headline font-light leading-snug max-w-2xl mx-auto pt-6">
-            Trabajamos con <span className="font-semibold">pocos encargos cada mes.</span>
+            Asumimos <span className="font-semibold">pocos encargos cada mes.</span>
             <br />
             Porque hacer bien este trabajo no admite prisas.
           </p>
