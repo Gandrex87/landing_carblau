@@ -16,10 +16,10 @@ const WHATSAPP_MSG = encodeURIComponent("Hola, me interesa vuestro servicio de b
 
 export function Hero() {
   return (
-    <section className="relative pt-40 pb-16 overflow-hidden min-h-[56.25vw]">
+    <section className="relative pt-40 pb-16 overflow-hidden min-h-[60vw]">
       {/* Background image */}
       <Image
-        src="/fondos/paisaje_fondo_1.webp"
+        src="/fondos/paisaje_web3.webp"
         alt=""
         fill
         priority
